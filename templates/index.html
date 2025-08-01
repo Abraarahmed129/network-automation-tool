@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+  <h2>Device Information</h2>
+  <pre>{{ device_info }}</pre>
+
+  <hr>
+
+  <h2>Configure VLAN</h2>
+  <form method="post">
+    <label for="vlan_id">VLAN ID:</label>
+    <input type="text" id="vlan_id" name="vlan_id" required>
+    <label for="vlan_name">VLAN Name:</label>
+    <input type="text" id="vlan_name" name="vlan_name" required>
+    <button type="submit">Configure</button>
+  </form>
+
+  {% if config_output %}
+    <h3>Configuration Output:</h3>
+    <pre>{{ config_output }}</pre>
+  {% endif %}
+{% endblock %}
